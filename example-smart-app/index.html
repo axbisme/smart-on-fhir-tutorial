@@ -11,13 +11,10 @@
     <script>
     $(document).ready(function () {
         $("#search").click(function (e) {
-            var validate = Validate();
-            $("#definition").html(validate);
-            if (validate.length == 0) {
-                $.ajax({
+          $.ajax({
                     type: "GET",
                     url: "https://www.dictionaryapi.com/api/v3/references/medical/json/" + $("#medicalterm").val() + "?key=48abbdf4-a309-48f8-bc70-c3f3be69f462",
-                    dataType: "json",
+                    dataType: "JSON",
                     success: function (result, status, xhr) {
                         //var table = $("<table><tr><th>Definition</th></tr>");
 
@@ -27,18 +24,11 @@
                         $("#definition").html("<p>successfully called api, definition goes here</p>");
                     },
                     error: function (xhr, status, error) {
-                        alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
+                        alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText);
                     }
                 });
             }
         });
-      function Validate() {
-        var errorMessage = "";
-        if ($("#medicalterm").val() == "") {
-            errorMessage += "<p>Enter a medical term</p>";
-        }
-        return errorMessage;
-      }
     });
   </script>
   </head>
