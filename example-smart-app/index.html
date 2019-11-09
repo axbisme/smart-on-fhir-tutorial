@@ -10,8 +10,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-  $("button").click(function(){
-    $.ajax({url: "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", success: function(result){
+  $("#search").click(function(){
+    $.ajax({method: "GET", url: "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", success: function(result){
       $("#definition").html(result);
     }});
   });
@@ -31,7 +31,7 @@ $(document).ready(function(){
     </div>
     
     <div class="container">
-      <div id="definition"></div>
+      <p id="definition"></p>
     </div>
     
     <!-- Bootstrap -->
