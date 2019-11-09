@@ -19,12 +19,12 @@
                     url: "https://www.dictionaryapi.com/api/v3/references/medical/json/" + $("#medicalterm").val() + "?key=48abbdf4-a309-48f8-bc70-c3f3be69f462",
                     dataType: "json",
                     success: function (result, status, xhr) {
-                        var table = $("<table><tr><th>Definition</th></tr>");
+                        //var table = $("<table><tr><th>Definition</th></tr>");
 
-                        table.append("<tr><td>" + result["shortdef"] + "</td></tr>");
-                        table.append("</table>");
+                        //table.append("<tr><td>" + result["shortdef"] + "</td></tr>");
+                        //table.append("</table>");
 
-                        $("#definition").html(table);
+                        $("#definition").html("<p>successfully called api, definition goes here</p>");
                     },
                     error: function (xhr, status, error) {
                         alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
