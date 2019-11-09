@@ -9,11 +9,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-  $("button").click(function(){
-    $.get("https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", function(data, status){
-      alert("Data: " + data + "\nStatus: " + status);
-    });
+$("#search").click(function() {
+  $.ajax({
+    url: "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462",
+    type: "GET",
+    dataType: "jsonp",  //For external apis
+    success: function() { 
+       alert("success") },
   });
 });
     </script>
