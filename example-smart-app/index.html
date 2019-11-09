@@ -12,7 +12,7 @@
     $(document).ready(function () {
         $("#search").click(function (e) {
           $.ajax({
-                    type: "GET",
+                    method: "GET",
                     url: "https://www.dictionaryapi.com/api/v3/references/medical/json/" + $("#medicalterm").val() + "?key=48abbdf4-a309-48f8-bc70-c3f3be69f462",
                     dataType: "json",
                     success: function (result, status, xhr) {
