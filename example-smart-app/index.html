@@ -9,11 +9,13 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-$(document).ready(function(){
-  $("#search").click(function(){
-    $.ajax({method: "POST", url: "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", success: function(result){
-      $("#definition").html(result);
-    }});
+$(document).ready(function() {
+  var api_url = 'https://www.dictionaryapi.com/api/v3/references/medical/json/'
+  var api_key = '48abbdf4-a309-48f8-bc70-c3f3be69f462';
+  var med_term = $(#medicalterm).val();
+                   
+  $("button").click(function(){
+    alert("The paragraph was clicked.");
   });
 });
 </script>
