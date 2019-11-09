@@ -9,16 +9,10 @@
   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script>
-       $(document).ready(function () {
-        $("#search").click(function (e) {
-            $("#definition").html("<p>test</p>");
-        });
-});
-    /*
     $(document).ready(function () {
-        $("#submit").click(function (e) {
+        $("#search").click(function (e) {
             var validate = Validate();
-            $("#message").html(validate);
+            $("#definition").html(validate);
             if (validate.length == 0) {
                 $.ajax({
                     type: "POST",
@@ -30,7 +24,7 @@
                         table.append("<tr><td>" + result["shortdef"] + "</td></tr>");
                         table.append("</table>");
 
-                        $("#message").html(table);
+                        $("#definition").html(table);
                     },
                     error: function (xhr, status, error) {
                         alert("Result: " + status + " " + error + " " + xhr.status + " " + xhr.statusText)
@@ -44,9 +38,9 @@
             errorMessage += "<p>Enter a medical term</p>";
         }
         return errorMessage;
-    }
-});*/
-        </script>
+      }
+    });
+  </script>
   </head>
   <body>
     <h1 class="display-4">Medical Dictionary</h1>
