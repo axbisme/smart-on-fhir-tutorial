@@ -11,7 +11,9 @@
 <script>
 $(document).ready(function(){
   $("button").click(function(){
-    $("#definition").val("Test onclick");
+    $.get("https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", function(data, status){
+      alert("Data: " + data + "\nStatus: " + status);
+    });
   });
 });
     </script>
