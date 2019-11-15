@@ -17,7 +17,13 @@ function loadDoc() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        var obj = JSON.parse(this.responseText);
-       document.getElementById("definition").innerHTML = obj[0].shortdef;
+       var definitions = "";
+       for(i = 0; i < obj.length; i++){
+         var num = i + 1;
+         definitions += "Definition [" + num + "]:" + obj[i].shortdef;
+       }
+       
+       document.getElementById("definition").innerHTML = definitions;
     }
   };
   
