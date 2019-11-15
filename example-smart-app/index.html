@@ -26,10 +26,10 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("definition").innerHTML = this.responseText;
+            document.getElementById("definition").innerHTML = "test";
           }
         };
-        xhttp.open("GET", "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462"", true);
+        xhttp.open("GET", "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", true);
         xhttp.send();
       }
     </script>
