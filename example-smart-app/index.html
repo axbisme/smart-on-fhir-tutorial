@@ -12,7 +12,7 @@
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
-  var searchterm = document.getElementById("searchterm").val;
+  var searchterm = document.getElementById("searchterm").value;
   
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
