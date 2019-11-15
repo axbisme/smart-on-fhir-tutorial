@@ -1,37 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-    <title>Example-SMART-App</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
-  
-  <body>
-    <h1 class="display-4">Medical Dictionary</h1>
-    <p class="lead">Powered by Merriam Webster's Medical Dictionary</p>
-    
-    <div class="container-fluid">
-      <div class="row justify-content-start">
-        <input type="text" id="medicalterm" aria-describedby="medicalterm" placeholder="Enter medical term"/>
-        <button id="search" class="btn btn-primary" onclick="loadDoc()">Search</button>
-      </div>
-    </div>
-    
-    <p id="definition"></p>
-    
-    <script>
-      function loadDoc() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("definition").innerHTML = "test";
-          }
-        };
-        xhttp.open("GET", "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", true);
-        xhttp.send();
-      }
-    </script>
-  </body>
+<html>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="demo"></p>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", true);
+  xhttp.send();
+}
+</script>
+
+</body>
 </html>
