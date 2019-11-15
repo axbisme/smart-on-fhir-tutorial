@@ -21,6 +21,7 @@ function loadDoc() {
        for(i = 0; i < obj.length; i++){
          var num = i + 1;
          definitions += "Definition [" + num + "]:" + obj[i].shortdef;
+         definitions += "<br>";
        }
        
        document.getElementById("definition").innerHTML = definitions;
