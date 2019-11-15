@@ -2,21 +2,28 @@
 <html>
 <body>
 
-<h2>The XMLHttpRequest Object</h2>
+<h2>Medical Dictionary</h2>
 
-<button type="button" onclick="loadDoc()">Request data</button>
+<input type="text" id="searchterm" name="searchterm" />
+<button type="button" onclick="loadDoc()">Search</button>
 
-<p id="demo"></p>
+<p id="definition"></p>
 
 <script>
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
+  var searchterm = document.getElementById("searchterm").val;
+  
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("demo").innerHTML = this.responseText;
+      document.getElementById("definition").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "https://www.dictionaryapi.com/api/v3/references/medical/json/doctor?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", true);
+  
+  xhttp.open("GET", 
+    "https://www.dictionaryapi.com/api/v3/references/medical/json/" + searchterm + "?key=48abbdf4-a309-48f8-bc70-c3f3be69f462", 
+     true);
+  
   xhttp.send();
 }
 </script>
