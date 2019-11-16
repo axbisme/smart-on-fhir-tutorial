@@ -9,8 +9,8 @@
 <button type="button" onclick="loadDoc()">Search</button>
 <br>
 
-<audio id="myAudio" controls>
-  <source src="https://media.merriam-webster.com/soundc11/d/doctor01.wav" type="audio/wav">
+<audio id="termAudio" controls>
+  <source src="https://media.merriam-webster.com/soundc11/d/doctor01.wav" type="audio/wav" id="termAudioSource">
   Your browser does not support the audio element.
 </audio>
 
@@ -21,6 +21,7 @@ function loadDoc() {
   var xhttp = new XMLHttpRequest();
   var searchterm = document.getElementById("searchterm").value;
   var apikey = "48abbdf4-a309-48f8-bc70-c3f3be69f462";
+  var audioSource = "https://media.merriam-webster.com/soundc11/";
   
   searchterm = searchterm.replace(" ","");
   searchterm = searchterm.toLowerCase();
@@ -30,13 +31,19 @@ function loadDoc() {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
      
-       for(i = 0; i < obj.length; i++){
-         var num = i + 1;
-         definitions += "Definition [" + num + "]:" + obj[i].shortdef;
-         definitions += "<br>";
-         definitions += "<br>";
+       if(obj[0].shortdef){
+         for(i = 0; i < obj.length; i++){
+           var num = i + 1;
+           definitions += "Definition [" + num + "]:" + obj[i].shortdef;
+           definitions += "<br>";
+           definitions += "<br>";
+         }
+         
+       }else{
+           definitions = "Definition not found";
+
        }
-       
+      
        document.getElementById("definition").innerHTML = definitions;
     }
   };
