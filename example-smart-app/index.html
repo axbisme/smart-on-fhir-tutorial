@@ -32,6 +32,11 @@ function loadDoc() {
   var source = document.getElementById("termAudioSource");
   var audioTerm = "";
   var audioRef = "";
+  var retrieveAudio = true;
+  
+  if(searchterm.indexOf(" ") > 0){
+    retrieveAudio = false;
+  }
   
   searchterm = searchterm.replace(" ","");
   searchterm = searchterm.toLowerCase();
@@ -48,7 +53,7 @@ function loadDoc() {
            definitions += obj[i].shortdef;
            definitions += "</div>";
            
-           if(i == 0){
+           if(i == 0 && retrieveAudio){
              audioTerm = obj[0].hwi.prs[0].sound.audio;
              audioRef = audioTerm.charAt(0);
            }
