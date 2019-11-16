@@ -7,9 +7,19 @@
 
 <h4 class="display-4">Medical Dictionary</h4>
 <p class="lead">Powered by Merriam-Webster</p>
+
+<div class="input-group mb-3">
+  <input id="searchterm" name="searchterm" type="text" class="form-control" placeholder="Enter medical term" aria-label="Enter medical term" aria-describedby="searchbutton">
+  <div class="input-group-append">
+    <button class="btn btn-dark" type="button" id="searchbutton" onclick="loadDoc()">Button</button>
+  </div>
+</div>
   
+<!--  
 <input type="text" id="searchterm" name="searchterm" />
-<button type="button" onclick="loadDoc()" class="btn btn-dark">Search</button>
+<button type="button" onclick="loadDoc()" class="btn btn-dark" id="searchbutton">Search</button>
+-->
+<br>
 <br>
 
 <audio id="termAudio" style="width: 100px;" controls>
