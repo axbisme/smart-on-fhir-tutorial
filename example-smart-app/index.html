@@ -19,6 +19,7 @@
 <script>
 function isEmpty(obj) {
     for(var prop in obj) {
+        alert(prop);
         if(obj.hasOwnProperty(prop))
             return false;
     }
