@@ -9,9 +9,12 @@
 <p class="lead">Powered by Merriam-Webster</p>
 
 <div class="input-group mb-3">
-  <input id="searchterm" name="searchterm" type="text" class="form-control" placeholder="Enter medical term" aria-label="Enter medical term" aria-describedby="searchbutton">
-  <div class="input-group-append">
+  <input id="searchterm" name="searchterm" type="text" class="form-control" placeholder="Enter medical term" aria-label="Enter medical term" aria-describedby="appendinput">
+  <div class="input-group-append" id="appendinput">
     <button class="btn btn-dark" type="button" id="searchbutton" onclick="loadDoc()">Button</button>
+    <audio id="termAudio" style="width: 100px;" controls>
+      <source src="" type="audio/wav" id="termAudioSource">
+    </audio>
   </div>
 </div>
   
@@ -20,13 +23,7 @@
 <button type="button" onclick="loadDoc()" class="btn btn-dark" id="searchbutton">Search</button>
 -->
 <br>
-<br>
-
-<audio id="termAudio" style="width: 100px;" controls>
-  <source src="" type="audio/wav" id="termAudioSource">
-  Your browser does not support the audio element.
-</audio>
-
+  
 <p id="definition"></p>
 
 <script>
