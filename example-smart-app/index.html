@@ -18,11 +18,6 @@
   </div>
 </div>
 </div>
-  
-<!--  
-<input type="text" id="searchterm" name="searchterm" />
-<button type="button" onclick="loadDoc()" class="btn btn-dark" id="searchbutton">Search</button>
--->
 <br>
   
 <div id="definition" class="container-fluid"></div>
@@ -52,8 +47,6 @@ function loadDoc() {
            definitions += "<p class='font-weight-bolder'>" + (i + 1) + " : </p>";
            definitions += obj[i].shortdef;
            definitions += "</div>";
-           //definitions += "<br>";
-           //definitions += "<br>";
            
            if(i == 0){
              audioTerm = obj[0].hwi.prs[0].sound.audio;
