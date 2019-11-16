@@ -17,6 +17,15 @@
 <p id="definition"></p>
 
 <script>
+function isEmpty(obj) {
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return true;
+}
+  
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
   var searchterm = document.getElementById("searchterm").value;
@@ -31,7 +40,7 @@ function loadDoc() {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
      
-       if(obj[0].shortdef == ""){
+       if(!isEmpty(obj)){
          for(i = 0; i < obj.length; i++){
            var num = i + 1;
            definitions += "Definition [" + num + "]:" + obj[i].shortdef;
