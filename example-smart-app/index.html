@@ -31,7 +31,7 @@ function loadDoc() {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
      
-       if(obj[0].shortdef){
+       if(obj[0].shortdef == ""){
          for(i = 0; i < obj.length; i++){
            var num = i + 1;
            definitions += "Definition [" + num + "]:" + obj[i].shortdef;
