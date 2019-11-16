@@ -48,12 +48,11 @@ function loadDoc() {
        }
       
        document.getElementById("definition").innerHTML = definitions;
+       
+       source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
+       audio.load(); //call this to just preload the audio without playing
     }
   };
-
-  source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
-  audio.load(); //call this to just preload the audio without playing
-  audio.play(); //call this to play the song right away
   
   xhttp.open("GET", 
     "https://www.dictionaryapi.com/api/v3/references/medical/json/" + searchterm + "?key=" + apikey, 
