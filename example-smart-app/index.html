@@ -10,7 +10,7 @@
 <br>
 
 <audio id="termAudio" controls>
-  <source src="https://media.merriam-webster.com/soundc11/d/doctor01.wav" type="audio/wav" id="termAudioSource">
+  <source src="" type="audio/wav" id="termAudioSource">
   Your browser does not support the audio element.
 </audio>
 
@@ -22,6 +22,10 @@ function loadDoc() {
   var searchterm = document.getElementById("searchterm").value;
   var apikey = "48abbdf4-a309-48f8-bc70-c3f3be69f462";
   var audioSource = "https://media.merriam-webster.com/soundc11/";
+  var audio = document.getElementById("termAudio");
+  var source = document.getElementById("termAudioSource");
+  var audioTerm = "";
+  var audioRef = "";
   
   searchterm = searchterm.replace(" ","");
   searchterm = searchterm.toLowerCase();
@@ -30,17 +34,26 @@ function loadDoc() {
     if (this.readyState == 4 && this.status == 200) {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
-     
+      
        for(i = 0; i < obj.length; i++){
            var num = i + 1;
            definitions += "Definition [" + num + "]:" + obj[i].shortdef;
            definitions += "<br>";
            definitions += "<br>";
+           
+           if(i == 0){
+             audioTerm = obj[0].hwi.prs[0].sound.audio;
+             audioRef = audioTerm.charAt(0);
+           }
        }
       
        document.getElementById("definition").innerHTML = definitions;
     }
   };
+
+  source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
+  audio.load(); //call this to just preload the audio without playing
+  audio.play(); //call this to play the song right away
   
   xhttp.open("GET", 
     "https://www.dictionaryapi.com/api/v3/references/medical/json/" + searchterm + "?key=" + apikey, 
