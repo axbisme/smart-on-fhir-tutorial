@@ -38,8 +38,9 @@ function loadDoc() {
            definitions += "<br>";
        }
        
-       if(definitions == "")
+       if(definitions == ""){
          definitions = "Definition not found";
+       }
       
        document.getElementById("definition").innerHTML = definitions;
     }
