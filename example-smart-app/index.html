@@ -46,25 +46,28 @@ function loadDoc() {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
       
-      alert(obj.hasOwnProperty('shortdef'));
+      if(obj.hasOwnProperty('shortdef')){
       
-       for(i = 0; i < obj.length; i++){
-           var num = i + 1;
-           definitions += "<div class='shadow p-3 mb-5 bg-white rounded'>";
-           definitions += "<p class='font-weight-bolder'>" + (i + 1) + " : </p>";
-           definitions += obj[i].shortdef;
-           definitions += "</div>";
-           
-           if(i == 0 && retrieveAudio){
-             audioTerm = obj[0].hwi.prs[0].sound.audio;
-             audioRef = audioTerm.charAt(0);
-           }
+         for(i = 0; i < obj.length; i++){
+             var num = i + 1;
+             definitions += "<div class='shadow p-3 mb-5 bg-white rounded'>";
+             definitions += "<p class='font-weight-bolder'>" + (i + 1) + " : </p>";
+             definitions += obj[i].shortdef;
+             definitions += "</div>";
+
+             if(i == 0 && retrieveAudio){
+               audioTerm = obj[0].hwi.prs[0].sound.audio;
+               audioRef = audioTerm.charAt(0);
+             }
+         }
+
+         document.getElementById("definition").innerHTML = definitions;
+
+         source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
+         audio.load();
+       else{
+         document.getElementById("definition").innerHTML = "<div class='alert alert-warning' role='alert'>Medical term not found. Please ensure there are no typos and try again.</div>";
        }
-       
-       document.getElementById("definition").innerHTML = definitions;
-       
-       source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
-       audio.load();
     }
   };
   
