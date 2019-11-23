@@ -52,25 +52,29 @@ function loadDoc() {
     if (this.readyState == 4 && this.status == 200) {
        var obj = JSON.parse(this.responseText);
       
-      if(obj.hasOwnProperty('shortdef') == true){
-      
-         for(i = 0; i < obj.length; i++){
-             var num = i + 1;
-             definitions += "<div class='shadow p-3 mb-5 bg-white rounded'>";
-             definitions += "<p class='font-weight-bolder'>" + (i + 1) + " : </p>";
-             definitions += obj[i].shortdef;
-             definitions += "</div>";
+      if(obj.length > 0){
+        if(obj[0].hasOwnProperty('shortdef') == true){
 
-             if(i == 0 && retrieveAudio){
-               audioTerm = obj[0].hwi.prs[0].sound.audio;
-               audioRef = audioTerm.charAt(0);
-             }
-         }
-  
-         document.getElementById("definition").innerHTML = definitions;
+           for(i = 0; i < obj.length; i++){
+               var num = i + 1;
+               definitions += "<div class='shadow p-3 mb-5 bg-white rounded'>";
+               definitions += "<p class='font-weight-bolder'>" + (i + 1) + " : </p>";
+               definitions += obj[i].shortdef;
+               definitions += "</div>";
 
-         source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
-         audio.load();
+               if(i == 0 && retrieveAudio){
+                 audioTerm = obj[0].hwi.prs[0].sound.audio;
+                 audioRef = audioTerm.charAt(0);
+               }
+           }
+
+           document.getElementById("definition").innerHTML = definitions;
+
+           source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
+           audio.load();
+        }else{
+           document.getElementById("definition").innerHTML = "<div class='alert alert-warning' role='alert'>Medical term not found. Please ensure there are no typos and try again.</div>";
+        }
       }else{
          document.getElementById("definition").innerHTML = "<div class='alert alert-warning' role='alert'>Medical term not found. Please ensure there are no typos and try again.</div>";
       }
