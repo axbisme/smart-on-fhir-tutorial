@@ -34,6 +34,7 @@ function loadDoc() {
   var audioRef = "";
   var retrieveAudio = true;
   var definitions = "";
+  document.getElementById("definition").innerHTML = ""
   
   if(!searchterm){
     document.getElementById("definition").innerHTML = "<div class='alert alert-primary' role='alert'>Please enter a medical term before continuing.</div>";
@@ -65,16 +66,16 @@ function loadDoc() {
                audioRef = audioTerm.charAt(0);
              }
          }
+  
+         document.getElementById("definition").innerHTML = definitions;
 
          source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
          audio.load();
       }else{
-         definitions = "<div class='alert alert-warning' role='alert'>Medical term not found. Please ensure there are no typos and try again.</div>";
+         document.getElementById("definition").innerHTML = "<div class='alert alert-warning' role='alert'>Medical term not found. Please ensure there are no typos and try again.</div>";
       }
     }
   };
-  
-  document.getElementById("definition").innerHTML = definitions;
   
   xhttp.open("GET", 
     "https://www.dictionaryapi.com/api/v3/references/medical/json/" + searchterm + "?key=" + apikey, 
