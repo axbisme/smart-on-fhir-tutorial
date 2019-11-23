@@ -46,9 +46,10 @@ function loadDoc() {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
       
-      if(obj.length == "0"){
-      alert("Length coming");
       alert(obj.length);
+      
+      if(obj.length == "0"){
+      alert("Code to validate here");
       }
       
        for(i = 0; i < obj.length; i++){
