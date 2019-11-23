@@ -36,6 +36,9 @@ function loadDoc() {
   var definitions = "";
   document.getElementById("definition").innerHTML = ""
   
+  searchterm = searchterm.replace(" ","");
+  searchterm = searchterm.toLowerCase();
+  
   if(!searchterm){
     document.getElementById("definition").innerHTML = "<div class='alert alert-primary' role='alert'>Please enter a medical term before continuing.</div>";
     return;
@@ -44,9 +47,6 @@ function loadDoc() {
   if(searchterm.indexOf(" ") > 0){
     retrieveAudio = false;
   }
-  
-  searchterm = searchterm.replace(" ","");
-  searchterm = searchterm.toLowerCase();
   
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
