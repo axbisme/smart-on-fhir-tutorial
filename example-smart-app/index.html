@@ -66,7 +66,7 @@ function loadDoc() {
          source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
          audio.load();
        else{
-         document.getElementById("definition").innerHTML = "<div class='alert alert-warning' role='alert'>Medical term not found. Please ensure there are no typos and try again.</div>";
+         document.getElementById("definition").innerHTML = "<p>Medical term not found. Please ensure there are no typos and try again.</p>";
        }
     }
   };
