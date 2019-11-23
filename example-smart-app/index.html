@@ -45,7 +45,11 @@ function loadDoc() {
     if (this.readyState == 4 && this.status == 200) {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
-       alert(obj);
+      
+      if (Object.entries(obj).length === 0 && obj.constructor === Object){
+        alert("Term not found");
+      }
+      
        for(i = 0; i < obj.length; i++){
            var num = i + 1;
            definitions += "<div class='shadow p-3 mb-5 bg-white rounded'>";
