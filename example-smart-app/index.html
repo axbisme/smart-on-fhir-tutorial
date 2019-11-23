@@ -46,7 +46,7 @@ function loadDoc() {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
       
-      if (Object.entries(obj).length === 0 && obj.constructor === Object){
+      if ((Object.entries(obj).length === 0 && obj.constructor === Object) || (Object.keys(obj).length === 0 && obj.constructor === Object)){
         alert("Term not found");
       }
       
