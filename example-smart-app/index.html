@@ -46,7 +46,7 @@ function loadDoc() {
        var obj = JSON.parse(this.responseText);
        var definitions = "";
       
-      if(obj.hasOwnProperty('shortdef')){
+      if(obj.hasOwnProperty('shortdef') == true){
       
          for(i = 0; i < obj.length; i++){
              var num = i + 1;
@@ -65,7 +65,7 @@ function loadDoc() {
 
          source.src = audioSource + "/" + audioRef + "/" + audioTerm + ".wav";
          audio.load();
-       else{
+      }else{
          document.getElementById("definition").innerHTML = "<p>Medical term not found. Please ensure there are no typos and try again.</p>";
        }
     }
